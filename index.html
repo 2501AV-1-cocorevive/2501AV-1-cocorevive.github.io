@@ -1,0 +1,560 @@
+<!doctype html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="referrer" content="strict-origin-when-cross-origin">
+<meta name="theme-color" content="#153f2d">
+<meta name="description" content="COCOREVIVE – Dự án khởi nghiệp sản phẩm gia dụng và bao bì sinh học từ phụ phẩm dừa Bến Tre. Từ phụ phẩm dừa – Sống xanh mỗi ngày.">
+<title>COCOREVIVE | Khởi nghiệp xanh từ dừa Bến Tre</title>
+<style>
+:root{
+  --deep:#153f2d;--green:#286b45;--light:#a3cb79;--brown:#8b6040;--cream:#f5f0e6;--white:#fcfaf6;
+  --ink:#302a25;--gold:#c39b62;--muted:#6b655e;--r:22px;--shadow:0 14px 45px rgba(36,53,35,.09);
+  --hero-p: 0;
+  --img-p1:0.5;
+  --img-p2:0.5;
+  --img-p3:0.5;
+}
+*{box-sizing:border-box}html{scroll-behavior:smooth;scroll-padding-top:90px}body{margin:0;background:var(--white);color:var(--ink);font-family:system-ui,-apple-system,'Segoe UI',Roboto,Arial,sans-serif;line-height:1.68;overflow-x:hidden}a{color:inherit;text-decoration:none}img{max-width:100%;display:block}button{font:inherit;cursor:pointer}h1,h2,h3,p{margin-top:0}h1,h2,h3{line-height:1.18;letter-spacing:-.035em}h2{font-size:clamp(2rem,4.2vw,4rem)}h3{font-size:1.35rem}p{color:#514a41}button,a{-webkit-tap-highlight-color:transparent}:focus-visible{outline:3px solid var(--light);outline-offset:4px}.wrap{width:min(1180px,calc(100% - 40px));margin:auto}.skip{position:absolute;top:-100px;left:12px;z-index:100;background:white;padding:12px}.skip:focus{top:12px}.eyebrow{font-weight:800;text-transform:uppercase;letter-spacing:.13em;font-size:.77rem;color:var(--brown)}.section{padding:100px 0}.section-title{display:grid;grid-template-columns:100px 1fr;gap:22px;align-items:start;margin-bottom:38px}.count{font-size:clamp(4rem,8vw,7.3rem);font-weight:900;line-height:1;color:#dfd2bc;letter-spacing:-.08em}.lead{font-size:1.12rem;max-width:75ch}.tag{display:inline-flex;align-items:center;border:1px solid rgba(21,63,45,.16);border-radius:100px;padding:6px 13px;font-size:.8rem;font-weight:700;color:var(--green)}.btn{display:inline-flex;justify-content:center;align-items:center;gap:12px;background:var(--green);color:white;border-radius:100px;padding:13px 23px;font-weight:750;border:1px solid var(--green);transition:transform .2s,background .2s}.btn:hover{background:var(--deep);transform:translateY(-2px)}.btn.outline{background:transparent;color:var(--deep)}.btn.outline:hover{background:var(--cream)}
+header{position:sticky;top:0;z-index:50;background:rgba(252,250,246,.95);backdrop-filter:blur(15px);border-bottom:1px solid rgba(21,63,45,.1)}.nav{height:76px;display:flex;align-items:center;justify-content:space-between;gap:20px}.brand{display:flex;align-items:center;gap:10px;font-size:1.18rem;font-weight:900;letter-spacing:.03em;color:var(--deep)}.brand-icon{width:34px;height:34px;flex-shrink:0}.links{display:flex;align-items:center;gap:23px;font-size:.89rem;font-weight:700}.links a:hover,.links a.active{color:var(--green)}.menu-button{display:none;border:0;background:transparent;color:var(--deep);font-size:1.7rem;line-height:1}
+
+.hero{position:relative;min-height:min(780px,calc(100svh - 76px));display:flex;align-items:center;isolation:isolate;overflow:hidden;color:white;background:linear-gradient(110deg,rgba(7,38,26,.93),rgba(13,53,34,.8) 43%,rgba(16,60,36,.3)),radial-gradient(circle at 78% 55%,#9aa16b 0,#527d48 30%,#204f39 60%,#122e26 100%)}.hero:after{content:"";position:absolute;right:-8%;bottom:-30%;height:85%;width:60%;border-radius:50%;border:90px solid rgba(180,217,137,.13);transform:rotate(-28deg);z-index:-1}
+
+/* HIỆU ỨNG CO ẢNH NỀN HERO KHI CUỘN CHUỘT */
+.hero-photo{
+  position:absolute;
+  inset:0;
+  z-index:-2;
+  background:url('imgs/hero-cocorevive.webp') center/cover no-repeat;
+  opacity:calc(0.85 - var(--hero-p) * 0.45);
+  transform:scale(calc(1.15 - var(--hero-p) * 0.2)) translateY(calc(var(--hero-p) * 40px));
+  transform-origin:center center;
+  will-change:transform, opacity;
+  transition:transform 0.08s ease-out, opacity 0.08s ease-out;
+}
+
+.hero-inner{padding:85px 0 115px}.hero .eyebrow{color:#c8e6a7}.hero h1{font-size:clamp(3.8rem,10vw,8.3rem);margin:17px 0 12px;letter-spacing:-.075em}.hero h2{font-size:clamp(1.6rem,3.5vw,3rem);max-width:680px;line-height:1.18;margin:0 0 24px}.hero p{max-width:620px;color:#f1f2e7;font-size:1.07rem}.hero-buttons{display:flex;flex-wrap:wrap;gap:12px;margin-top:32px}.hero .btn{background:#dfecc7;color:#143924;border-color:#dfecc7}.hero .btn.outline{background:transparent;color:#fff;border-color:rgba(255,255,255,.65)}.valuebar{position:relative;margin-top:-52px;z-index:2;display:grid;grid-template-columns:repeat(3,1fr);gap:15px}.value{background:white;border:1px solid #f0e9da;padding:24px;display:flex;gap:13px;align-items:center;border-radius:18px;box-shadow:var(--shadow)}.value-icon{display:grid;place-items:center;background:#edf4e2;color:var(--green);border-radius:50%;width:48px;height:48px;flex-shrink:0;font-size:1.4rem}.value strong{display:block;color:var(--deep)}.value small{display:block;color:var(--muted);line-height:1.4}
+
+/* HIỆU ỨNG THU PHÓNG BẦU DỤC CHO CÁC HÌNH ẢNH */
+.image-card{
+  --p: var(--img-p1);
+  border-radius:var(--r);
+  min-height:420px;
+  overflow:hidden;
+  position:relative;
+  background:linear-gradient(145deg,#e5ebce,#a7bb81 45%,#8b6040);
+  box-shadow:var(--shadow);
+}
+.image-card img{
+  width:100%;height:100%;object-fit:cover;position:absolute;inset:0;
+  clip-path: ellipse(calc(30% + var(--p) * 45%) calc(25% + var(--p) * 45%) at 50% 50%);
+  transform: scale(calc(0.92 + var(--p) * 0.12));
+  will-change: clip-path, transform;
+  transition: clip-path 0.1s ease-out, transform 0.1s ease-out;
+}
+.image-card:before{content:"";position:absolute;inset:0;background:radial-gradient(ellipse at 30% 30%,rgba(255,255,255,.5),transparent 55%)}
+.image-card .image-note{position:absolute;bottom:15px;left:15px;right:15px;background:rgba(255,255,255,.89);border-radius:12px;padding:8px 12px;font-size:.75rem;color:var(--deep);font-weight:700;z-index:2}
+.columns{display:grid;grid-template-columns:1.05fr .95fr;gap:50px;align-items:center}.prose p{margin-bottom:15px}
+
+/* ══════════════ TRỢ NĂNG RÊ CHUỘT TỰ ĐỘNG ĐỌC BẰNG GIỌNG NGƯỜI VIỆT ══════════════ */
+.has-tts{
+  position:relative;
+  outline-offset:4px;
+  cursor:pointer;
+}
+.has-tts:hover::after{
+  content:"🔊 Đang đọc giọng Tiếng Việt...";
+  position:absolute;
+  top:14px;
+  right:14px;
+  background:rgba(21,63,45,.94);
+  color:#fff;
+  font-size:.78rem;
+  font-weight:700;
+  padding:6px 14px;
+  border-radius:24px;
+  backdrop-filter:blur(8px);
+  z-index:10;
+  pointer-events:none;
+  box-shadow:0 4px 16px rgba(0,0,0,.25);
+  animation:popIn .25s ease-out;
+}
+@keyframes popIn{from{opacity:0;transform:scale(.85)}to{opacity:1;transform:scale(1)}}
+
+/* Nút chỉ dẫn trực quan */
+.tts-badge-btn{
+  position:absolute;
+  bottom:15px;
+  right:15px;
+  z-index:9;
+  background:rgba(21,63,45,.88);
+  color:#fff;
+  border:1px solid rgba(255,255,255,.4);
+  border-radius:20px;
+  padding:5px 12px;
+  font-size:.73rem;
+  font-weight:700;
+  display:inline-flex;
+  align-items:center;
+  gap:6px;
+  backdrop-filter:blur(6px);
+  pointer-events:none;
+}
+
+/* Khung hiển thị giọng đọc nổi Toast */
+#tts-toast{
+  position:fixed;
+  bottom:28px;
+  left:50%;
+  transform:translateX(-50%) translateY(140px);
+  background:var(--deep);
+  color:#fff;
+  padding:15px 24px;
+  border-radius:50px;
+  font-size:.92rem;
+  display:flex;
+  align-items:center;
+  gap:14px;
+  box-shadow:0 14px 40px rgba(0,0,0,.35);
+  z-index:999;
+  max-width:min(92vw, 720px);
+  transition:transform .35s cubic-bezier(.16,1,.3,1);
+  border:1.5px solid rgba(163,203,121,.45);
+}
+#tts-toast.active{
+  transform:translateX(-50%) translateY(0);
+}
+#tts-toast .speaker-icon{
+  font-size:1.35rem;
+  animation:wave 1.2s infinite ease-in-out;
+}
+@keyframes wave{0%,100%{transform:scale(1)}50%{transform:scale(1.28)}}
+
+/* TƯƠNG TÁC CHO 3 MỤC 01 / 02 / 03 */
+.feature-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:42px}
+.feature{
+  background:white;
+  border:2px solid #eee8dd;
+  border-radius:20px;
+  padding:26px;
+  box-shadow:0 8px 24px rgba(0,0,0,.03);
+  cursor:pointer;
+  transition:all .35s cubic-bezier(.16,1,.3,1);
+  position:relative;
+  display:flex;
+  flex-direction:column;
+  text-align:left;
+}
+.feature:hover{
+  border-color:var(--green);
+  transform:translateY(-4px);
+  box-shadow:0 14px 30px rgba(40,107,69,.12);
+}
+.feature.active{
+  border-color:var(--green);
+  background:linear-gradient(175deg, #ffffff 60%, #f4f8ed 100%);
+  box-shadow:0 16px 36px rgba(40,107,69,.15);
+}
+.feature-header{display:flex;justify-content:space-between;align-items:center}
+.feature .index{font-size:.82rem;color:var(--brown);font-weight:800;letter-spacing:.12em}
+.feature .toggle-badge{
+  font-size:.8rem;
+  font-weight:800;
+  color:var(--green);
+  background:#edf4e2;
+  border-radius:50%;
+  width:26px;
+  height:26px;
+  display:inline-grid;
+  place-items:center;
+  transition:transform .3s;
+}
+.feature.active .toggle-badge{transform:rotate(45deg);background:var(--deep);color:#fff}
+.feature h3{color:var(--deep);margin:14px 0 9px;font-size:1.38rem;line-height:1.2}
+.feature .summary{margin:0;font-size:.94rem;color:#514a41}
+
+.feature-expand{
+  max-height:0;
+  overflow:hidden;
+  opacity:0;
+  transition:max-height .5s cubic-bezier(.16,1,.3,1), opacity .4s ease, margin-top .3s ease;
+}
+.feature.active .feature-expand{
+  max-height:850px;
+  opacity:1;
+  margin-top:16px;
+  border-top:1px dashed rgba(40,107,69,.25);
+  padding-top:14px;
+}
+.feature-detail-list{
+  padding-left:18px;
+  margin:10px 0 0;
+  font-size:.88rem;
+  color:#413a33;
+}
+.feature-detail-list li{margin:6px 0}
+.feature-stat{
+  background:#f6f8ef;
+  border-left:3px solid var(--green);
+  padding:8px 12px;
+  margin:12px 0 6px;
+  border-radius:0 8px 8px 0;
+  font-size:.84rem;
+  color:var(--deep);
+}
+
+.products{display:grid;grid-template-columns:1fr 1fr;gap:23px;margin-top:45px}.product{background:#fff;border-radius:22px;overflow:hidden;border:1px solid #eee9e1;box-shadow:var(--shadow)}
+
+.product-art{
+  height:270px;
+  position:relative;
+  background:linear-gradient(135deg,#d7c5a6,#7e9d65);
+  overflow:hidden;
+}
+.product:nth-child(1) .product-art img{
+  --p: var(--img-p2);
+  width:100%;height:100%;object-fit:cover;
+  clip-path: ellipse(calc(28% + var(--p) * 50%) calc(22% + var(--p) * 50%) at 50% 50%);
+  transform: scale(calc(0.92 + var(--p) * 0.12));
+  will-change: clip-path, transform;
+  transition: clip-path 0.1s ease-out, transform 0.1s ease-out;
+}
+.product:nth-child(2) .product-art img{
+  --p: var(--img-p3);
+  width:100%;height:100%;object-fit:cover;
+  clip-path: ellipse(calc(28% + var(--p) * 50%) calc(22% + var(--p) * 50%) at 50% 50%);
+  transform: scale(calc(0.92 + var(--p) * 0.12));
+  will-change: clip-path, transform;
+  transition: clip-path 0.1s ease-out, transform 0.1s ease-out;
+}
+
+.product-art.pack{background:linear-gradient(135deg,#e9ddba,#91b388)}.product-art .tag{position:absolute;top:17px;left:17px;background:rgba(255,255,255,.94);z-index:2}.product-body{padding:29px}.product h3{font-size:1.7rem;color:var(--deep)}.product ul{margin-bottom:0;padding-left:20px;color:#514a41}.smallprint{font-size:.78rem;color:var(--muted)}
+.identity{background:#edf0e4}.identity-grid{display:grid;grid-template-columns:1fr 1fr;gap:25px}.identity-card{background:white;border-radius:20px;padding:35px;min-height:260px;border:1px solid #e7e6db}.identity-logo{display:flex;align-items:center;justify-content:center;gap:25px;min-height:190px;text-align:left}.identity-logo .brand-icon{width:115px;height:115px}.identity-logo strong{display:block;font-size:clamp(1.4rem,3vw,2.35rem);color:var(--deep);letter-spacing:-.04em}.identity-logo span{color:var(--brown);font-size:.8rem;letter-spacing:.14em;font-weight:800}.swatches{display:flex;gap:10px;flex-wrap:wrap;margin-top:26px}.swatch{flex:1;min-width:80px}.swatch b{display:block;height:45px;border-radius:10px}.swatch small{font-size:.7rem}.poster{min-height:410px;position:relative;display:flex;align-items:center;justify-content:center;padding:35px;text-align:center;border-radius:20px;background:linear-gradient(145deg,#f5efe1,#d8e2c5);overflow:hidden;border:1px solid rgba(21,63,45,.13)}.poster:before,.poster:after{content:"";position:absolute;width:250px;height:250px;border:45px solid rgba(40,107,69,.14);border-radius:55% 5% 55% 5%;transform:rotate(32deg)}.poster:before{top:-160px;left:-130px}.poster:after{right:-150px;bottom:-135px}.poster-content{position:relative;z-index:1}.poster h3{font-size:clamp(2rem,4vw,3.25rem);color:var(--deep);margin:15px 0}.poster p{color:#405d43;font-weight:750}.poster .pill{display:inline-block;background:var(--deep);color:#fff;padding:8px 20px;border-radius:40px}.steps{display:grid;grid-template-columns:repeat(6,1fr);gap:12px;margin-top:27px}.step{border-radius:15px;padding:20px 13px;background:white;text-align:center;box-shadow:0 5px 20px rgba(0,0,0,.025)}.step-number{display:grid;place-items:center;width:35px;height:35px;border-radius:50%;background:#e7f0d9;color:var(--deep);font-weight:900;margin:0 auto 11px}.step h3{font-size:.93rem;color:var(--deep);margin:0 0 7px}.step p{font-size:.79rem;line-height:1.5;margin:0}
+
+/* VIDEO SECTION */
+.video-section{background:var(--deep);color:white}.video-section .eyebrow{color:#c5dea3}.video-section p,.video-section .lead{color:#e5ece3}.video-section .count{color:#739779}.video-frame{position:relative;aspect-ratio:16/9;width:min(900px,100%);margin:36px auto 0;background:linear-gradient(125deg,#274830,#6b845d 50%,#c0a472);border-radius:22px;overflow:hidden;box-shadow:0 25px 80px rgba(0,0,0,.22)}.video-frame img{width:100%;height:100%;object-fit:cover;position:absolute;inset:0}.video-overlay{position:absolute;inset:0;background:linear-gradient(0deg,rgba(0,0,0,.83),transparent 65%);display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:25px}.video-overlay h3{font-size:clamp(1.8rem,4vw,3.5rem);color:white}.play{width:80px;height:80px;border-radius:50%;border:2px solid white;background:rgba(255,255,255,.22);color:white;font-size:2rem;backdrop-filter:blur(8px);margin-bottom:22px;transition:transform .2s, background .2s}.play:hover{transform:scale(1.1);background:var(--green)}.video-caption{text-align:center;font-size:.85rem;margin-top:18px;color:#dbe8d6!important}.video-details{display:flex;justify-content:center;flex-wrap:wrap;gap:14px;margin-top:25px}.video-details .tag{color:#e6f5d5;border-color:#83a78c}
+
+.team-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:19px;margin-top:33px}.member{background:white;padding:25px;border:1px solid #eee8df;border-radius:20px;text-align:center;box-shadow:var(--shadow)}.avatar{width:84px;height:84px;display:grid;place-items:center;background:#e9e4d8;border-radius:50%;margin:0 auto 18px;color:var(--deep);font-size:2.5rem}.member h3{color:var(--deep);margin-bottom:5px}.member p{font-size:.87rem;margin:7px 0}.faculty{margin-top:28px;border-radius:18px;background:#f1f3e9;padding:25px}.faq{background:#f7f2e8}.faq-grid{max-width:870px;margin:auto}.faq details{border:1px solid #e8ddc9;background:#fff;border-radius:15px;margin:12px 0;padding:0 22px}.faq summary{cursor:pointer;list-style:none;font-weight:760;color:var(--deep);padding:18px 4px;display:flex;justify-content:space-between;gap:15px}.faq summary::-webkit-details-marker{display:none}.faq summary:after{content:'+';font-size:1.3rem}.faq details[open] summary:after{content:'−'}.faq details p{border-top:1px solid #f0ebe1;margin:0;padding:15px 4px 21px}
+footer{background:#153f2d;color:white;padding:55px 0 25px}footer p,footer a{color:#d5e7d7}footer .brand{color:white}footer .footer-grid{display:grid;grid-template-columns:2fr 1fr;gap:30px}footer ul{list-style:none;padding:0;margin:0}footer li{margin:6px 0}footer .bottom{margin-top:35px;padding-top:20px;border-top:1px solid rgba(255,255,255,.2);font-size:.79rem;color:#d5e7d7}.reveal{opacity:0;transform:translateY(22px);transition:opacity .7s ease,transform .7s ease}.reveal.visible{opacity:1;transform:translateY(0)}
+@media(max-width:900px){.section{padding:70px 0}.section-title{grid-template-columns:66px 1fr}.count{font-size:4.4rem}.columns{gap:25px}.feature-grid{grid-template-columns:1fr}.steps{grid-template-columns:repeat(3,1fr)}.team-grid{grid-template-columns:repeat(2,1fr)}.links{gap:12px;font-size:.78rem}.identity-grid{grid-template-columns:1fr 1fr}}
+@media(max-width:680px){.wrap{width:min(100% - 28px,1180px)}.nav{height:65px}.menu-button{display:block}.links{display:none;position:absolute;left:0;right:0;top:65px;padding:18px 20px 25px;background:var(--white);flex-direction:column;align-items:stretch;box-shadow:0 14px 20px rgba(0,0,0,.08)}.links.open{display:flex}.links a{padding:9px}.hero{min-height:665px}.hero-inner{padding:72px 0 100px}.hero h1{font-size:clamp(3.1rem,14vw,4.6rem)}.hero h2{font-size:1.8rem}.valuebar{grid-template-columns:1fr;margin-top:-35px;gap:9px}.value{padding:15px}.section-title{grid-template-columns:1fr;gap:5px}.count{font-size:4.2rem}.columns,.feature-grid,.products,.identity-grid,.footer-grid{grid-template-columns:1fr!important}.image-card{min-height:310px}.product-art{height:230px}.steps{grid-template-columns:repeat(2,1fr)}.team-grid{grid-template-columns:1fr 1fr;gap:10px}.member{padding:16px 11px}.member h3{font-size:1rem}.identity-logo{flex-direction:column;text-align:center}.identity-logo .brand-icon{width:80px;height:80px}.poster{min-height:340px}.hero-photo{background-position:center}.section{padding:65px 0}}
+@media(max-width:380px){.steps,.team-grid{grid-template-columns:1fr}.hero-buttons{flex-direction:column;align-items:stretch}.btn{width:100%}}
+@media(prefers-reduced-motion:reduce){*,*::before,*::after{scroll-behavior:auto!important;transition:none!important;animation:none!important}.reveal{opacity:1!important;transform:none!important}.hero-photo{transform:none!important}.image-card img, .product-art img{clip-path:none!important;transform:none!important}}
+</style>
+</head>
+<body>
+<a href="#main" class="skip">Đến nội dung chính</a>
+
+<!-- Thanh thông báo hiển thị câu đang đọc -->
+<div id="tts-toast" role="status" aria-live="polite">
+  <span class="speaker-icon">🔊</span>
+  <span id="tts-toast-text">Đang đọc mô tả ảnh bằng giọng Tiếng Việt...</span>
+</div>
+
+<header><div class="wrap nav"><a href="#top" class="brand" aria-label="COCOREVIVE - Trang chủ"><svg class="brand-icon has-tts" viewBox="0 0 100 100" role="img" aria-label="Biểu tượng COCOREVIVE gồm quả dừa màu nâu và hai nhánh lá xanh uốn cong tuần hoàn." data-tts="Logo thương hiệu COCOREVIVE. Biểu tượng quả dừa nâu kết hợp hai nhánh lá dừa xanh cách điệu tạo hình vòng tròn tuần hoàn."><path d="M55 26C70 8 85 9 90 10 87 28 74 36 61 37" fill="#6da366"/><path d="M47 30C30 11 17 16 10 22c9 15 20 22 35 22" fill="#a3cb79"/><path d="M20 49C27 23 74 25 81 48c9 28-8 46-30 46-23 0-39-18-31-45Z" fill="#8b6040"/><path d="M32 48c8-16 24-19 35-8-17 8-27 24-24 44-13-8-17-21-11-36Z" fill="#dbba8e"/><path d="M51 18c5 9 7 18 3 30" fill="none" stroke="#153f2d" stroke-width="5" stroke-linecap="round"/></svg><span>COCOREVIVE</span></a><button class="menu-button" id="menu-button" aria-expanded="false" aria-controls="main-nav" aria-label="Mở menu">☰</button><nav class="links" id="main-nav" aria-label="Điều hướng chính"><a href="#top">Trang chủ</a><a href="#y-tuong">Ý tưởng</a><a href="#nhan-dien">Nhận diện</a><a href="#video">Video</a><a href="#nhom">Nhóm</a><a href="#faq">FAQ</a></nav></div></header>
+<main id="main">
+<section class="hero" id="top"><div class="hero-photo has-tts" role="img" aria-label="Rặng dừa xanh bạt ngàn tại Bến Tre dưới ánh nắng tự nhiên, nền cảnh mở đầu cho dự án khởi nghiệp xanh COCOREVIVE." data-tts="Ảnh nền đầu trang. Rặng dừa xanh bạt ngàn tại Bến Tre dưới ánh nắng tự nhiên, nền cảnh mở đầu cho dự án khởi nghiệp xanh COCOREVIVE."></div><div class="wrap hero-inner"><div class="eyebrow">Khởi nghiệp xanh từ xứ dừa Bến Tre</div><h1>COCOREVIVE</h1><h2>TỪ PHỤ PHẨM DỪA<br>SỐNG XANH MỖI NGÀY</h2><p>Khơi nguồn sáng tạo từ phụ phẩm dừa Bến Tre, phát triển các sản phẩm gia dụng và giải pháp bao bì từ vật liệu có nguồn gốc thực vật, hướng đến lối sống có trách nhiệm và giá trị bền vững.</p><div class="hero-buttons"><a class="btn" href="#y-tuong">Khám phá ý tưởng →</a><a class="btn outline" href="#video">Xem hành trình ↗</a></div></div></section>
+<div class="wrap valuebar"><div class="value"><div class="value-icon">❧</div><div><strong>TẬN DỤNG</strong><small>Khơi dậy tiềm năng phụ phẩm dừa</small></div></div><div class="value"><div class="value-icon">✦</div><div><strong>SÁNG TẠO</strong><small>Phát triển các sản phẩm hữu ích</small></div></div><div class="value"><div class="value-icon">↻</div><div><strong>BỀN VỮNG</strong><small>Hướng đến kinh tế tuần hoàn</small></div></div></div>
+
+<section id="y-tuong" class="section"><div class="wrap"><div class="section-title reveal"><span class="count">01</span><div><span class="eyebrow">Ý tưởng khởi nghiệp</span><h2>Đánh thức giá trị mới từ phụ phẩm dừa Bến Tre</h2><p class="lead">Từ nguồn nguyên liệu bản địa đến những sản phẩm mang giá trị cho cuộc sống.</p></div></div><div class="columns"><div class="prose reveal"><p>Bến Tre được biết đến là “thủ phủ dừa” của cả nước với hơn <strong>79.000 ha diện tích trồng dừa</strong> và xuất khẩu sản phẩm tới trên 90 quốc gia. Mỗi năm, hoạt động thu hoạch và sơ chế tạo ra một khối lượng khổng lồ phụ phẩm gồm gáo dừa, chỉ xơ dừa và mụn dừa. Dù đã có một số ứng dụng truyền thống như làm than hoạt tính hay giá thể trồng trọt, hàng trăm ngàn tấn phụ phẩm vẫn bị đốt bỏ hoặc thải ra môi trường gây phát thải khí nhà kính và lãng phí tài nguyên hữu cơ giá trị.</p><p>Đồng thời, xu hướng tiêu dùng xanh đang bùng nổ: các lệnh hạn chế đồ nhựa dùng một lần và nhu cầu chuyển đổi sang bao bì phân hủy sinh học tạo nên cơ hội thương mại lớn cho các giải pháp vật liệu thuần tự nhiên.</p><p>Từ thực tế ấy, dự án <strong>COCOREVIVE – Khởi nghiệp sản phẩm gia dụng và bao bì sinh học từ phụ phẩm dừa Bến Tre</strong> ra đời nhằm hiện thực hóa mô hình kinh tế tuần hoàn, gia tăng giá trị chuỗi nông sản dừa Việt Nam.</p></div>
+<div class="image-card reveal has-tts" id="card-img-1" title="Rê chuột để nghe giọng người Việt đọc mô tả"><img src="imgs/y-tuong-dua.webp" alt="Hình ảnh nguyên liệu tự nhiên gồm gáo dừa đã gọt nhẵn, bó sợi xơ dừa thô và mụn dừa trải trên nền gỗ mộc mạc." loading="lazy" onerror="this.style.display='none'"><span class="tts-badge-btn">🔊 Rê chuột để nghe tiếng Việt</span><div class="image-note">Từ nguyên liệu quen thuộc đến ý tưởng giá trị mới</div></div></div>
+
+<!-- KHỐI 3 MỤC CÓ TÍNH NĂNG CLICK MỞ RỘNG VÀ HIỆU ỨNG TƯƠNG TÁC -->
+<div class="feature-grid" id="interactive-features">
+  <article class="feature reveal active" tabindex="0" role="button" aria-expanded="true">
+    <div class="feature-header">
+      <span class="index">01 / VẤN ĐỀ</span>
+      <span class="toggle-badge">+</span>
+    </div>
+    <h3>Tiềm năng & Thách thức</h3>
+    <p class="summary">Áp lực rác thải phụ phẩm nông nghiệp Bến Tre và gánh nặng rác nhựa công nghiệp.</p>
+    
+    <div class="feature-expand">
+      <div class="feature-stat"><strong>Thực trạng:</strong> Toàn tỉnh Bến Tre có hơn 79.000 ha dừa; phụ phẩm vỏ và gáo dừa chiếm tới gần 60-70% trọng lượng trái nhưng chưa khai thác hết giá trị cao.</div>
+      <p style="margin:8px 0;font-size:.9rem;color:#514a41">Những nút thắt lớn cần giải quyết:</p>
+      <ul class="feature-detail-list">
+        <li><strong>Lãng phí phụ phẩm sinh khối:</strong> Hàng trăm tấn xơ dừa, gáo dừa bị đốt lộ thiên tạo khói bụi hoặc thải xuống kênh rạch làm tắc nghẽn dòng chảy và phân hủy yếm khí sinh khí mê-tan ($CH_4$).</li>
+        <li><strong>Gánh nặng bao bì xốp nhựa (EPS/PE):</strong> Ngành thương mại điện tử và logistics tiêu thụ lượng khay đệm chống sốc bằng nhựa khó phân hủy, mất hàng trăm năm để tiêu biến.</li>
+        <li><strong>Giá trị gia tăng thấp:</strong> Bà con nông dân chủ yếu bán thô xơ dừa, chỉ xơ và mụn dừa với giá trị kinh tế thấp, dễ bấp bênh theo mùa vụ.</li>
+      </ul>
+    </div>
+  </article>
+
+  <article class="feature reveal" tabindex="0" role="button" aria-expanded="false">
+    <div class="feature-header">
+      <span class="index">02 / GIẢI PHÁP</span>
+      <span class="toggle-badge">+</span>
+    </div>
+    <h3>Thiết kế & Công nghệ</h3>
+    <p class="summary">Khai thác xơ dừa và gáo dừa bằng công nghệ ép định hình sinh học không độc hại.</p>
+    
+    <div class="feature-expand">
+      <div class="feature-stat"><strong>Mô hình cốt lõi:</strong> Kết hợp cơ tính dai bền của sợi xơ dừa với chất kết dính sinh học hữu cơ (tinh bột/keo tự nhiên) và gia công tinh xảo gáo dừa.</div>
+      <p style="margin:8px 0;font-size:.9rem;color:#514a41">Giải pháp của COCOREVIVE gồm 2 hướng đột phá:</p>
+      <ul class="feature-detail-list">
+        <li><strong>COCO PACK (Bao bì & đệm chống sốc sinh học):</strong> Công nghệ xử lý loại bỏ tanin/lignin tự do, phối trộn sợi xơ dừa ngắn và mụn dừa đã xử lý, ép nhiệt thành khay định hình chịu lực, giảm sốc và tự phân hủy trong đất chỉ sau 60–90 ngày.</li>
+        <li><strong>COCO HOME (Vật dụng gia dụng tuần hoàn):</strong> Tận dụng gáo dừa già có mật độ cứng cao, chà nhám thủ công kết hợp dầu dừa dưỡng bóng tự nhiên, không sơn hóa chất độc hại, an toàn trang trí và sử dụng.</li>
+        <li><strong>Chứng nhận và an toàn:</strong> Thực hiện kiểm nghiệm cơ lý, độ kháng ẩm, tải trọng và độ tinh sạch vi sinh trước khi đưa vào sản xuất thương mại.</li>
+      </ul>
+    </div>
+  </article>
+
+  <article class="feature reveal" tabindex="0" role="button" aria-expanded="false">
+    <div class="feature-header">
+      <span class="index">03 / KHÁCH HÀNG</span>
+      <span class="toggle-badge">+</span>
+    </div>
+    <h3>Thị trường & Khách hàng</h3>
+    <p class="summary">Mạng lưới người tiêu dùng thế hệ mới (Gen Z, Millennials) và doanh nghiệp ESG.</p>
+    
+    <div class="feature-expand">
+      <div class="feature-stat"><strong>Mục tiêu thị trường:</strong> Nhắm vào phân khúc tiêu dùng bền vững và làn sóng chuyển đổi bao bì đạt chuẩn xanh ESG của doanh nghiệp.</div>
+      <p style="margin:8px 0;font-size:.9rem;color:#514a41">Phân khúc khách hàng trọng tâm:</p>
+      <ul class="feature-detail-list">
+        <li><strong>Doanh nghiệp B2B (Logistics, Nông nghiệp, Mỹ phẩm hữu cơ):</strong> Các thương hiệu mỹ phẩm tự nhiên cần hộp quà sang trọng; doanh nghiệp nông sản công nghệ cao cần khay ươm hữu cơ thay bầu nhựa; cơ sở thủ công cần bao bì đệm thân thiện.</li>
+        <li><strong>Khách hàng cá nhân B2C (Lối sống xanh):</strong> Nhóm bạn trẻ, gia đình văn minh yêu thích phong cách tối giản, mộc mạc và tôn trọng sinh thái tự nhiên.</li>
+        <li><strong>Cửa hàng quà tặng, Homestay & Resort sinh thái:</strong> Nhu cầu sử dụng bát dừa, khay đựng gáo dừa, nến thơm gáo dừa để tạo điểm nhấn trải nghiệm bản địa cho du khách quốc tế.</li>
+      </ul>
+    </div>
+  </article>
+</div>
+
+<div class="products"><article class="product reveal" id="card-img-2"><div class="product-art has-tts" title="Rê chuột để nghe giọng người Việt đọc mô tả"><img src="imgs/coco-home.webp" alt="Bộ sản phẩm gia dụng COCO HOME gồm chén, bát tròn và khay đựng mộc mạc được chế tác từ gáo dừa tự nhiên đánh bóng." loading="lazy" onerror="this.style.display='none'"><span class="tts-badge-btn">🔊 Rê chuột để nghe tiếng Việt</span><span class="tag">DÒNG SẢN PHẨM 01</span></div><div class="product-body"><h3>COCO HOME</h3><p><strong>Vẻ đẹp tự nhiên trong từng góc sống.</strong></p><p>Bộ sưu tập đồ gia dụng và trang trí khai thác vẻ đẹp mộc mạc của gáo dừa: chén, bát trang trí, khay đựng đồ, hộp vật dụng và quà tặng.</p><p class="smallprint">Sản phẩm chưa kiểm nghiệm tiếp xúc thực phẩm chỉ được giới thiệu cho mục đích trang trí hoặc đựng vật dụng phù hợp.</p></div></article><article class="product reveal" id="card-img-3"><div class="product-art pack has-tts" title="Rê chuột để nghe giọng người Việt đọc mô tả"><img src="imgs/coco-pack.webp" alt="Mẫu khay định hình và hộp bao bì sinh học màu nâu sáng ép từ sợi xơ dừa nén chặt, giải pháp thay thế đồ nhựa." loading="lazy" onerror="this.style.display='none'"><span class="tts-badge-btn">🔊 Rê chuột để nghe tiếng Việt</span><span class="tag">DÒNG SẢN PHẨM 02</span></div><div class="product-body"><h3>COCO PACK</h3><p><strong>Đóng gói thông minh – Hướng tới tương lai xanh.</strong></p><p>Nghiên cứu khay, hộp, vật liệu đệm định hình và khay ươm cây từ xơ dừa kết hợp những thành phần phù hợp theo từng ứng dụng.</p><p class="smallprint">Khả năng phân hủy, độ bền và an toàn thực phẩm phải được kiểm nghiệm trước khi đưa ra công bố cụ thể.</p></div></article></div><div class="feature-grid"><article class="feature reveal"><h3>Nguyên liệu bản địa</h3><p>Gắn kết ý tưởng với hơn 79.000 ha dừa Bến Tre trù phú.</p></article><article class="feature reveal"><h3>Thiết kế có câu chuyện</h3><p>Đưa nét mộc mạc của dừa vào những sản phẩm mang bản sắc riêng.</p></article><article class="feature reveal"><h3>Giá trị tuần hoàn</h3><p>Hướng tới khai thác hiệu quả tài nguyên và kéo dài giá trị sử dụng.</p></article></div></div></section>
+
+<section id="nhan-dien" class="section identity"><div class="wrap"><div class="section-title reveal"><span class="count">02</span><div><span class="eyebrow">Thông điệp và bộ nhận diện</span><h2>COCOREVIVE – Trao vòng đời mới cho dừa</h2><p class="lead">Mỗi phần của cây dừa đều chứa đựng tiềm năng. Khi kết hợp với thiết kế sáng tạo và tư duy kinh tế tuần hoàn, nguồn phụ phẩm có thể trở thành những vật dụng hữu ích cho cuộc sống.</p></div></div><div class="identity-grid"><article class="identity-card reveal"><span class="eyebrow">Biểu tượng thương hiệu</span><div class="identity-logo has-tts" title="Rê chuột để nghe giọng người Việt đọc mô tả"><svg class="brand-icon" viewBox="0 0 100 100" role="img" aria-label="Logo thương hiệu COCOREVIVE: biểu tượng quả dừa nâu kết hợp hai nhánh lá dừa xanh cách điệu tạo hình vòng tròn tuần hoàn." data-tts="Logo thương hiệu COCOREVIVE. Biểu tượng quả dừa nâu kết hợp hai nhánh lá dừa xanh cách điệu tạo hình vòng tròn tuần hoàn."><path d="M55 26C70 8 85 9 90 10 87 28 74 36 61 37" fill="#6da366"/><path d="M47 30C30 11 17 16 10 22c9 15 20 22 35 22" fill="#a3cb79"/><path d="M20 49C27 23 74 25 81 48c9 28-8 46-30 46-23 0-39-18-31-45Z" fill="#8b6040"/><path d="M32 48c8-16 24-19 35-8-17 8-27 24-24 44-13-8-17-21-11-36Z" fill="#dbba8e"/><path d="M51 18c5 9 7 18 3 30" fill="none" stroke="#153f2d" stroke-width="5" stroke-linecap="round"/></svg><div><strong>COCOREVIVE</strong><span>TỪ PHỤ PHẨM DỪA<br>SỐNG XANH MỖI NGÀY</span></div></div><p><strong>Trái dừa</strong> tượng trưng nguyên liệu Bến Tre; <strong>lá xanh</strong> gợi thiên nhiên; <strong>đường nét tuần hoàn</strong> thể hiện khát vọng tạo vòng đời mới cho phụ phẩm.</p><div class="swatches" aria-label="Bảng màu nhận diện"><div class="swatch"><b style="background:#286b45"></b><small>#286B45</small></div><div class="swatch"><b style="background:#a3cb79"></b><small>#A3CB79</small></div><div class="swatch"><b style="background:#8b6040"></b><small>#8B6040</small></div><div class="swatch"><b style="background:#f5f0e6;border:1px solid #ddd"></b><small>#F5F0E6</small></div></div></article><div class="poster reveal"><div class="poster-content"><span class="eyebrow">Dự án khởi nghiệp sinh viên</span><h3>COCOREVIVE</h3><p>TỪ PHỤ PHẨM DỪA<br>SỐNG XANH MỖI NGÀY</p><p>Tận dụng nguyên liệu địa phương<br>Sáng tạo đồ gia dụng và bao bì<br>Hướng tới kinh tế tuần hoàn</p><span class="pill">COCO HOME &nbsp; | &nbsp; COCO PACK</span><p style="margin:18px 0 0;font-size:.85rem">BẾN TRE – KHỞI NGUỒN GIÁ TRỊ XANH</p><p class="smallprint" style="margin-bottom:0">Các sản phẩm được giới thiệu ở dạng ý tưởng và mẫu thiết kế.</p></div></div></div><h3 style="margin:50px 0 10px;color:var(--deep)">HÀNH TRÌNH TÁI SINH GIÁ TRỊ TỪ DỪA</h3><p>Từ nguồn nguyên liệu địa phương đến quy trình thiết kế và phát triển sản phẩm đề xuất.</p><div class="steps"><div class="step reveal"><span class="step-number">1</span><h3>Thu gom</h3><p>Tiếp nhận phụ phẩm từ hoạt động chế biến dừa.</p></div><div class="step reveal"><span class="step-number">2</span><h3>Phân loại</h3><p>Tách gáo dừa, xơ dừa và vật liệu phù hợp.</p></div><div class="step reveal"><span class="step-number">3</span><h3>Xử lý</h3><p>Làm sạch, gia công, xử lý sợi và phối trộn.</p></div><div class="step reveal"><span class="step-number">4</span><h3>Thiết kế</h3><p>Tạo mẫu sản phẩm gia dụng và bao bì.</p></div><div class="step reveal"><span class="step-number">5</span><h3>Kiểm nghiệm</h3><p>Đánh giá công năng, độ bền và tính an toàn.</p></div><div class="step reveal"><span class="step-number">6</span><h3>Thị trường</h3><p>Thử nghiệm khách hàng và cải tiến sản phẩm.</p></div></div></div></section>
+
+<!-- SECTION VIDEO ĐÃ KẾT NỐI YOUTUBE -->
+<section id="video" class="section video-section"><div class="wrap"><div class="section-title reveal"><span class="count">03</span><div><span class="eyebrow">Video minh họa</span><h2>85 giây khám phá hành trình tái sinh giá trị từ dừa Bến Tre</h2><p class="lead">Từ vùng dừa xanh mát, những phụ phẩm quen thuộc đến ý tưởng đồ gia dụng và bao bì – cùng khám phá câu chuyện khởi nghiệp COCOREVIVE.</p></div></div><div class="video-frame reveal" id="video-frame"><img src="imgs/video-thumbnail.webp" alt="Hình thu nhỏ video 85 giây: cảnh thu gom phụ phẩm xơ dừa tại xưởng Bến Tre và khung cảnh thiết kế sản phẩm COCOREVIVE." loading="lazy" onerror="this.style.display='none'"><div class="video-overlay"><button id="play-video" type="button" class="play" aria-label="Phát video giới thiệu COCOREVIVE">▶</button><h3>COCOREVIVE</h3><p style="color:white">TỪ PHỤ PHẨM DỪA – SỐNG XANH MỖI NGÀY</p><p id="video-message" style="color:#edf2e9;font-size:.82rem">Nhấn vào nút Phát để xem video giới thiệu (85 giây)</p></div></div><p class="video-caption">Nội dung có sử dụng AI tạo sinh. Video minh họa được nhóm biên tập và kiểm tra trước khi công bố.</p><div class="video-details"><span class="tag">60–90 giây</span><span class="tag">Lời dẫn tiếng Việt</span><span class="tag">Phụ đề tiếng Việt</span><span class="tag">Có ghi nhận thao tác biên tập</span></div></div></section>
+
+<section id="nhom" class="section"><div class="wrap"><div class="section-title reveal"><span class="count">04</span><div><span class="eyebrow">Thông tin nhóm</span><h2>Nhóm thực hiện dự án COCOREVIVE</h2><p class="lead">Những thành viên cùng chung ý tưởng phát triển sản phẩm từ nguồn tài nguyên dừa Bến Tre.</p></div></div><div class="team-grid"><article class="member reveal"><div class="avatar" aria-hidden="true">♟</div><h3>Thành viên 1</h3><p><strong>Nhóm trưởng</strong></p><p>Họ tên: [Cập nhật]</p><p>MSSV: [Cập nhật]</p><p>Xây dựng ý tưởng, nghiên cứu thị trường và giải pháp.</p></article><article class="member reveal"><div class="avatar" aria-hidden="true">✿</div><h3>Thành viên 2</h3><p><strong>Truyền thông</strong></p><p>Họ tên: [Cập nhật]</p><p>MSSV: [Cập nhật]</p><p>Thiết kế nhận diện, poster, hình ảnh.</p></article><article class="member reveal"><div class="avatar" aria-hidden="true">◉</div><h3>Thành viên 3</h3><p><strong>Video</strong></p><p>Họ tên: [Cập nhật]</p><p>MSSV: [Cập nhật]</p><p>Xây dựng kịch bản, tư liệu và hậu kỳ.</p></article><article class="member reveal"><div class="avatar" aria-hidden="true">⌘</div><h3>Thành viên 4</h3><p><strong>Kỹ thuật</strong></p><p>Họ tên: [Cập nhật]</p><p>MSSV: [Cập nhật]</p><p>Lập trình website, kiểm thử và chuẩn bị hồ sơ.</p></article></div><div class="faculty reveal"><strong>Học phần:</strong> AI ứng dụng (06050)<br><strong>Đơn vị:</strong> Viện Công nghệ tiên tiến và Trí tuệ nhân tạo – Trường Đại học Hùng Vương TP. Hồ Chí Minh<br><strong>Giảng viên hướng dẫn:</strong> TS. Nguyễn Quốc Trình<br><span class="smallprint">Tên, MSSV và phân công thành viên cần được nhóm cập nhật theo thông tin thực tế trước khi nộp.</span></div></div></section>
+
+<section id="faq" class="section faq"><div class="wrap"><div class="section-title reveal"><span class="count">?</span><div><span class="eyebrow">Giải đáp nhanh</span><h2>Câu hỏi thường gặp</h2><p class="lead">Tìm hiểu thêm về nguyên liệu, sản phẩm và phạm vi phát triển của dự án.</p></div></div><div class="faq-grid"><details><summary>1. COCOREVIVE sử dụng nguyên liệu gì?</summary><p>Dự án tập trung vào gáo dừa, xơ dừa và những vật liệu có nguồn gốc dừa. Tùy sản phẩm, nguyên liệu có thể được xử lý hoặc kết hợp với thành phần khác.</p></details><details><summary>2. Bao bì COCO PACK có hoàn toàn phân hủy sinh học không?</summary><p>Đây là định hướng nghiên cứu, chưa phải đặc tính đã được xác nhận. Khả năng phân hủy phụ thuộc thành phần, lớp phủ, chất kết dính và điều kiện xử lý sau sử dụng. Nhóm cần kiểm nghiệm trước khi công bố.</p></details><details><summary>3. COCO HOME có an toàn để đựng thức ăn không?</summary><p>Chỉ những sản phẩm đã được đánh giá về vật liệu, lớp hoàn thiện và điều kiện tiếp xúc thực phẩm mới được giới thiệu cho công dụng này. Những mẫu chưa kiểm nghiệm được định hướng làm đồ trang trí hoặc chứa vật dụng phù hợp.</p></details><details><summary>4. Điều gì làm nên khác biệt của COCOREVIVE?</summary><p>Dự án đề xuất phát triển hai dòng sản phẩm dưới một thương hiệu chung, kết hợp câu chuyện địa phương Bến Tre, thiết kế hiện đại và nghiên cứu tính năng của vật liệu từ phụ phẩm dừa.</p></details><details><summary>5. Các sản phẩm đã được bán chính thức chưa?</summary><p>COCOREVIVE hiện là ý tưởng khởi nghiệp trong khuôn khổ đồ án sinh viên. Các mẫu minh họa chưa đồng nghĩa với sản phẩm đã được kiểm nghiệm hoặc thương mại hóa.</p></details><details><summary>6. Dự án có thể tạo giá trị gì cho địa phương?</summary><p>Nếu được triển khai hiệu quả, dự án có thể góp phần bổ sung đầu ra cho phụ phẩm phù hợp, mở rộng cơ hội hợp tác với cơ sở chế biến và phát triển sản phẩm mang bản sắc Bến Tre.</p></details><details><summary>7. Website có sử dụng AI không?</summary><p>Có. AI hỗ trợ xây dựng bản thảo nội dung, gợi ý thiết kế, sản xuất tư liệu minh họa và hỗ trợ lập trình. Nhóm có trách nhiệm kiểm tra, chỉnh sửa và công khai đúng những khâu thực tế sử dụng AI.</p></details></div></div></section>
+</main>
+<footer><div class="wrap"><div class="footer-grid"><div><a href="#top" class="brand"><svg class="brand-icon has-tts" viewBox="0 0 100 100" role="img" aria-label="Biểu tượng COCOREVIVE gồm quả dừa màu nâu và hai nhánh lá xanh uốn cong tuần hoàn." data-tts="Logo thương hiệu COCOREVIVE. Biểu tượng quả dừa nâu kết hợp hai nhánh lá dừa xanh cách điệu tạo hình vòng tròn tuần hoàn."><path d="M55 26C70 8 85 9 90 10 87 28 74 36 61 37" fill="#6da366"/><path d="M47 30C30 11 17 16 10 22c9 15 20 22 35 22" fill="#a3cb79"/><path d="M20 49C27 23 74 25 81 48c9 28-8 46-30 46-23 0-39-18-31-45Z" fill="#8b6040"/></svg><span>COCOREVIVE</span></a><p>Từ phụ phẩm dừa – Sống xanh mỗi ngày.</p><p>Dự án khởi nghiệp sinh viên – Học phần AI ứng dụng (06050).<br>Trường Đại học Hùng Vương TP. Hồ Chí Minh.<br>Giảng viên hướng dẫn: TS. Nguyễn Quốc Trình.</p></div><div><strong>Khám phá</strong><ul><li><a href="#y-tuong">Ý tưởng khởi nghiệp</a></li><li><a href="#nhan-dien">Thông điệp và bộ nhận diện</a></li><li><a href="#video">Video minh họa</a></li><li><a href="#nhom">Thông tin nhóm</a></li><li><a href="#faq">Câu hỏi thường gặp</a></li></ul></div></div><div class="bottom">© <span id="year"></span> COCOREVIVE – Nhóm 1. <strong>Công khai AI:</strong> Nội dung website có sử dụng AI tạo sinh để hỗ trợ bản thảo, gợi ý thiết kế và lập trình; các hình ảnh, video nếu dùng AI phải được nhóm gắn nhãn theo thực tế. Mẫu sản phẩm chỉ mang tính ý tưởng, không phải sản phẩm đã được chứng nhận. Không có biểu mẫu thu thập dữ liệu cá nhân trên website.</div></div></footer>
+
+<script>
+const YOUTUBE_VIDEO_ID = 'E4iZTz2MXKw';
+const nav = document.getElementById('main-nav');
+const menuButton = document.getElementById('menu-button');
+menuButton.addEventListener('click',()=>{const open=nav.classList.toggle('open');menuButton.setAttribute('aria-expanded',String(open));menuButton.setAttribute('aria-label',open?'Đóng menu':'Mở menu');menuButton.textContent=open?'×':'☰';});
+nav.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>{nav.classList.remove('open');menuButton.setAttribute('aria-expanded','false');menuButton.setAttribute('aria-label','Mở menu');menuButton.textContent='☰';}));
+document.getElementById('year').textContent=new Date().getFullYear();
+
+// Video play handler
+const play=document.getElementById('play-video');
+play.addEventListener('click',()=>{
+  if(!/^[A-Za-z0-9_-]{11}$/.test(YOUTUBE_VIDEO_ID)){
+    document.getElementById('video-message').textContent='Video chưa được đăng. Hãy thay YOUTUBE_VIDEO_ID bằng ID video YouTube thực tế.';
+    return;
+  }
+  const frame=document.getElementById('video-frame');
+  const iframe=document.createElement('iframe');
+  iframe.src='https://www.youtube.com/embed/'+YOUTUBE_VIDEO_ID+'?autoplay=1&rel=0';
+  iframe.title='Video giới thiệu dự án COCOREVIVE';
+  iframe.referrerPolicy='strict-origin-when-cross-origin';
+  iframe.allow='accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share';
+  iframe.allowFullscreen=true;
+  iframe.style.cssText='position:absolute;inset:0;width:100%;height:100%;border:0';
+  frame.replaceChildren(iframe);
+});
+
+// Reveal on scroll
+if('IntersectionObserver' in window && !window.matchMedia('(prefers-reduced-motion: reduce)').matches){const observer=new IntersectionObserver(entries=>entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('visible');observer.unobserve(e.target);}}),{threshold:.08});document.querySelectorAll('.reveal').forEach(el=>observer.observe(el));}else{document.querySelectorAll('.reveal').forEach(el=>el.classList.add('visible'));}
+
+const sections=[...document.querySelectorAll('main section[id]')];const links=[...nav.querySelectorAll('a')];if('IntersectionObserver' in window){const activeObserver=new IntersectionObserver(entries=>entries.forEach(e=>{if(e.isIntersecting){links.forEach(a=>{const active=a.getAttribute('href')==='#'+e.target.id;a.classList.toggle('active',active);if(active)a.setAttribute('aria-current','location');else a.removeAttribute('aria-current');});}}),{rootMargin:'-25% 0px -65% 0px'});sections.forEach(s=>activeObserver.observe(s));}
+
+/* ════ XỬ LÝ TIẾN ĐỘ CUỘN ════ */
+(function(){
+  if(window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+
+  const hero = document.querySelector('.hero');
+  const cards = [
+    { el: document.getElementById('card-img-1'), prop: '--img-p1' },
+    { el: document.getElementById('card-img-2'), prop: '--img-p2' },
+    { el: document.getElementById('card-img-3'), prop: '--img-p3' }
+  ].filter(c => c.el);
+
+  let ticking = false;
+
+  function updateScrollProgress(){
+    ticking = false;
+    const vh = window.innerHeight;
+    const scrollY = window.scrollY || window.pageYOffset;
+
+    // 1. Cập nhật co hình nền Hero
+    if (hero) {
+      const heroHeight = hero.offsetHeight;
+      const heroProgress = Math.min(1, Math.max(0, scrollY / heroHeight));
+      document.documentElement.style.setProperty('--hero-p', heroProgress.toFixed(3));
+    }
+
+    // 2. Cập nhật bầu dục cho các ảnh minh họa
+    cards.forEach(item => {
+      const rect = item.el.getBoundingClientRect();
+      const totalDist = vh + rect.height;
+      const progress = (vh - rect.top) / totalDist;
+      const clamped = Math.min(1, Math.max(0, progress));
+      document.documentElement.style.setProperty(item.prop, clamped.toFixed(3));
+    });
+  }
+
+  function requestTick(){
+    if(!ticking){
+      ticking = true;
+      requestAnimationFrame(updateScrollProgress);
+    }
+  }
+
+  window.addEventListener('scroll', requestTick, { passive: true });
+  window.addEventListener('resize', requestTick);
+  updateScrollProgress();
+})();
+
+/* ════ TƯƠNG TÁC CLICK MỞ RỘNG 01 / 02 / 03 ════ */
+document.querySelectorAll('#interactive-features .feature').forEach(card => {
+  card.addEventListener('click', function(e) {
+    const isAlreadyActive = this.classList.contains('active');
+    
+    // Đóng tất cả các thẻ khác
+    document.querySelectorAll('#interactive-features .feature').forEach(c => {
+      c.classList.remove('active');
+      c.setAttribute('aria-expanded', 'false');
+    });
+
+    // Nếu thẻ được bấm chưa mở thì kích hoạt mở nó
+    if (!isAlreadyActive) {
+      this.classList.add('active');
+      this.setAttribute('aria-expanded', 'true');
+    }
+  });
+
+  card.addEventListener('keydown', function(e) {
+    if (e.key === 'Enter' || e.key === ' ') {
+      e.preventDefault();
+      this.click();
+    }
+  });
+});
+
+/* ════ KHẮC PHỤC TRIỆT ĐỂ: CHỈ ĐỌC GIỌNG TIẾNG VIỆT 100% ════ */
+(function(){
+  const toast = document.getElementById('tts-toast');
+  const toastText = document.getElementById('tts-toast-text');
+  let toastTimer = null;
+  let activeElement = null;
+  let cachedVoices = [];
+
+  // Tải danh sách voice của trình duyệt
+  function refreshVoices(){
+    if('speechSynthesis' in window){
+      cachedVoices = window.speechSynthesis.getVoices();
+    }
+  }
+
+  refreshVoices();
+  if('speechSynthesis' in window && window.speechSynthesis.onvoiceschanged !== undefined){
+    window.speechSynthesis.onvoiceschanged = refreshVoices;
+  }
+
+  // Hàm tìm kiếm voice thực sự là tiếng Việt
+  function getVnVoice(){
+    if(!cachedVoices || cachedVoices.length === 0){
+      refreshVoices();
+    }
+    let match = cachedVoices.find(v => {
+      const l = (v.lang || '').toLowerCase();
+      return l === 'vi-vn' || l === 'vi_vn' || l === 'vi';
+    });
+    if(match) return match;
+
+    match = cachedVoices.find(v => {
+      const n = (v.name || '').toLowerCase();
+      return n.includes('linh') || n.includes('vietnam') || n.includes('vietnamese') || n.includes('hoai my') || n.includes('an') || n.includes('nam');
+    });
+    return match;
+  }
+
+  function speakVietnamese(text){
+    if(!text) return;
+
+    if('speechSynthesis' in window){
+      window.speechSynthesis.cancel();
+    }
+
+    toastText.textContent = text;
+    toast.classList.add('active');
+    clearTimeout(toastTimer);
+    toastTimer = setTimeout(()=>{ toast.classList.remove('active'); }, 6500);
+
+    const vnVoice = getVnVoice();
+
+    if(vnVoice && ('speechSynthesis' in window)){
+      const utterance = new SpeechSynthesisUtterance(text);
+      utterance.voice = vnVoice;
+      utterance.lang = vnVoice.lang || 'vi-VN';
+      utterance.rate = 0.95;
+      utterance.pitch = 1.0;
+      window.speechSynthesis.speak(utterance);
+    } else {
+      toastText.innerHTML = '<strong>' + text + '</strong><br><small style="color:#f9e0a2">(Máy của bạn chưa cài gói giọng đọc Tiếng Việt trong Cài đặt hệ thống)</small>';
+    }
+  }
+
+  function stopSpeaking(){
+    if('speechSynthesis' in window){
+      window.speechSynthesis.cancel();
+    }
+    toast.classList.remove('active');
+    activeElement = null;
+  }
+
+  function triggerDescription(el){
+    if(activeElement === el) return;
+    activeElement = el;
+
+    let textToRead = '';
+    const img = el.querySelector('img');
+    const svg = el.matches('svg') ? el : el.querySelector('svg');
+
+    if(el.dataset.tts){
+      textToRead = el.dataset.tts;
+    } else if(img && img.alt){
+      textToRead = img.alt;
+    } else if(svg && svg.getAttribute('aria-label')){
+      textToRead = svg.getAttribute('aria-label');
+    } else if(el.getAttribute('aria-label')){
+      textToRead = el.getAttribute('aria-label');
+    }
+
+    if(textToRead){
+      speakVietnamese(textToRead);
+    }
+  }
+
+  document.querySelectorAll('.has-tts').forEach(container => {
+    container.addEventListener('mouseenter', function(){
+      triggerDescription(this);
+    });
+
+    container.addEventListener('mouseleave', function(){
+      stopSpeaking();
+    });
+
+    if(!container.hasAttribute('tabindex')) {
+      container.setAttribute('tabindex', '0');
+    }
+    container.setAttribute('role', 'img');
+
+    container.addEventListener('focus', function(){
+      triggerDescription(this);
+    });
+
+    container.addEventListener('blur', function(){
+      stopSpeaking();
+    });
+  });
+})();
+</script>
+</body>
+</html>
